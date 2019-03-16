@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 
+import { palette } from "../theme";
 import { FRET_NOTES } from "./notes";
 import Fretboard from "./Fretboard";
 
@@ -14,6 +15,11 @@ const StringFret = styled.span`
 
 const NextButton = styled.button`
   font-size: 42px;
+  background-color: ${palette.paleGrey}
+
+  &:disabled {
+    background-color: ${palette.paleGrey};
+  }
 `;
 
 function getRandomInt(max) {

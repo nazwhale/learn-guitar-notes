@@ -8,6 +8,8 @@ const Button = styled.button`
   font-size: 42px;
   width: 72px;
   outline: none;
+  border: 1px solid ${palette.darkGrey}
+  color: ${palette.black};
   background-color: ${props =>
     chooseColor(
       props.isConfirmationState,
@@ -15,6 +17,10 @@ const Button = styled.button`
       props.value,
       props.lastNoteSelected
     )};
+
+  &:disabled {
+    color: ${palette.black};
+  }
 `;
 
 function chooseColor(
@@ -24,7 +30,7 @@ function chooseColor(
   lastNoteSelected
 ) {
   if (challengeNote == null || !isConfirmationState) {
-    return "none";
+    return palette.paleGrey;
   }
 
   const isNoteCorrect = challengeNote === value;
@@ -33,6 +39,8 @@ function chooseColor(
   if (isNoteCorrect && isNoteChosen) return palette.green;
   if (isNoteCorrect) return palette.lightGreen;
   if (isNoteChosen) return palette.lightRed;
+
+  return palette.paleGrey;
 }
 
 export default class Fretboard extends React.Component {
@@ -53,6 +61,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             A
           </Button>
@@ -62,6 +71,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             A<SharpSign />
           </Button>
@@ -71,6 +81,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             B
           </Button>
@@ -80,6 +91,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             C
           </Button>
@@ -91,6 +103,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             C<SharpSign />
           </Button>
@@ -100,6 +113,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             D
           </Button>
@@ -109,6 +123,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             D<SharpSign />
           </Button>
@@ -118,6 +133,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             E
           </Button>
@@ -129,6 +145,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             F
           </Button>
@@ -138,6 +155,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             F<SharpSign />
           </Button>
@@ -147,6 +165,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             G
           </Button>
@@ -156,6 +175,7 @@ export default class Fretboard extends React.Component {
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
             lastNoteSelected={lastNoteSelected}
+            disabled={isConfirmationState}
           >
             G<SharpSign />
           </Button>
