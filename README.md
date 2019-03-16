@@ -64,10 +64,15 @@ V3 felt useable! I played around on my phone for a bit and felt like I was learn
 - disable the next button instead of hiding it in selection state
 - reduce size of "#"s
 
+![Imgur](https://i.imgur.com/R8OygMS.png)
+
+![Imgur](https://i.imgur.com/I7Zc9Il.png)
+
 ## Idea Backlog
 
 - feedback button
 - running score
+- image of fretboard instead of string and fret in text
 - results page
 - welcome page
 - add timing between guesses
