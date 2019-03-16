@@ -24,7 +24,7 @@ function chooseColor(
   lastNoteSelected
 ) {
   if (challengeNote == null || !isConfirmationState) {
-    return palette.white;
+    return "none";
   }
 
   const isNoteCorrect = challengeNote === value;
