@@ -2,7 +2,21 @@ import * as React from "react";
 import styled from "styled-components";
 import { FRET_NOTES } from "./notes";
 
-const NoteSelection = styled.button``;
+const KeyValue = styled.span`
+  padding-right: 8px;
+`;
+
+const StringFret = styled.span`
+  font-size: 42px;
+`;
+
+const Button = styled.button`
+  font-size: 42px;
+`;
+
+const Answer = styled.span`
+  font-size: 42px;
+`;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -63,94 +77,112 @@ export default class Fretboard extends React.Component {
 
     return (
       <>
-        <p>String: {fretNote["string"]}</p>
-        <p>Fret: {fretNote["fret"]}</p>
+        <p>
+          <KeyValue>
+            <StringFret>{fretNote["string"]}</StringFret>
+            string
+          </KeyValue>
+          <KeyValue>
+            <StringFret>{fretNote["fret"]}</StringFret>fret
+          </KeyValue>
+        </p>
         <div>
-          Answer:{" "}
-          {isAnswerRevealed ? (
-            <span>{fretNote["note"]}</span>
-          ) : (
-            <>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="A"
-              >
-                A
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="A#"
-              >
-                A#
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="B"
-              >
-                B
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="C"
-              >
-                C
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="C#"
-              >
-                C#
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="D"
-              >
-                D
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="D#"
-              >
-                D#
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="E"
-              >
-                E
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="F"
-              >
-                F
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="F#"
-              >
-                F#
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="G"
-              >
-                G
-              </NoteSelection>
-              <NoteSelection
-                onClick={e => this.handleNoteSelection(e, note)}
-                value="G#"
-              >
-                G#
-              </NoteSelection>
-            </>
-          )}{" "}
-          {isSelectionCorrect != null && (
-            <ResultEmoji isCorrect={isSelectionCorrect} />
-          )}
+          <Answer>
+            {isAnswerRevealed ? (
+              fretNote["note"]
+            ) : (
+              <>
+                <div>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="A"
+                  >
+                    A
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="A#"
+                  >
+                    A#
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="B"
+                  >
+                    B
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="C"
+                  >
+                    C
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="C#"
+                  >
+                    C#
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="D"
+                  >
+                    D
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="D#"
+                  >
+                    D#
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="E"
+                  >
+                    E
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="F"
+                  >
+                    F
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="F#"
+                  >
+                    F#
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="G"
+                  >
+                    G
+                  </Button>
+                  <Button
+                    onClick={e => this.handleNoteSelection(e, note)}
+                    value="G#"
+                  >
+                    G#
+                  </Button>
+                </div>
+              </>
+            )}{" "}
+            {isSelectionCorrect != null && (
+              <ResultEmoji isCorrect={isSelectionCorrect} />
+            )}
+          </Answer>
         </div>
         <div>
-          <button onClick={this.getNextFretNote}>Next</button>
+          {isAnswerRevealed && (
+            <Button onClick={this.getNextFretNote} style={{ margin: "16px 0" }}>
+              Next
+            </Button>
+          )}
         </div>
       </>
     );

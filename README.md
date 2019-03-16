@@ -1,6 +1,6 @@
 # Learn Guitar Notes
 
-I've always meant to memorize all the notes on the neck of a guitar, but never got round to it. I reckon it'll be pretty useful in learning to apply music theory.
+I've always meant to memorise all the notes on the neck of a guitar, but never got round to it. I reckon it'll be pretty useful in learning to apply music theory.
 
 This app aims to help me (and the rest of the world) to do that.
 
@@ -24,6 +24,29 @@ Guessing in user's head.
 Guessing in the app. Emoji confirmation 🎉 / 😭
 
 ![Imgur](https://i.imgur.com/WOrRenK.png)
+
+## V3
+
+##### Problems to solve
+
+It's all too small and fiddly and cluttered!
+
+- too hard to see fret and note to guess
+- note selection buttons too fiddly to pick
+- next button fiddly to click
+- no need for next button when selecting a note
+- lots of copy doesn't add any value and has the cost of making other elements stand out less
+
+##### Solutions
+
+- larger copy for string and fret value, aking them stand out from their labels
+- larger buttons
+- remove unnecessary button
+- remove unnecessary copy
+
+![Imgur](https://i.imgur.com/VQgbZuS.png)
+
+![Imgur](https://i.imgur.com/7mVlbZT.png)
 
 ## Idea Backlog
 
