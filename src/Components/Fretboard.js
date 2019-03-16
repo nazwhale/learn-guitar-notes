@@ -56,7 +56,7 @@ export default class Fretboard extends React.Component {
       <>
         <div>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="A"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -66,7 +66,7 @@ export default class Fretboard extends React.Component {
             A
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="A#"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -76,7 +76,7 @@ export default class Fretboard extends React.Component {
             A<SharpSign />
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="B"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -86,7 +86,7 @@ export default class Fretboard extends React.Component {
             B
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="C"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -98,7 +98,7 @@ export default class Fretboard extends React.Component {
         </div>
         <div>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="C#"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -108,7 +108,7 @@ export default class Fretboard extends React.Component {
             C<SharpSign />
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="D"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -118,7 +118,7 @@ export default class Fretboard extends React.Component {
             D
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="D#"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -128,7 +128,7 @@ export default class Fretboard extends React.Component {
             D<SharpSign />
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="E"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -140,7 +140,7 @@ export default class Fretboard extends React.Component {
         </div>
         <div>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="F"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -150,7 +150,7 @@ export default class Fretboard extends React.Component {
             F
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="F#"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -160,7 +160,7 @@ export default class Fretboard extends React.Component {
             F<SharpSign />
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="G"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}
@@ -170,7 +170,7 @@ export default class Fretboard extends React.Component {
             G
           </Button>
           <Button
-            onClick={e => handleNoteSelection(e, challengeNote)}
+            onClick={handleNoteSelection}
             value="G#"
             challengeNote={challengeNote}
             isConfirmationState={isConfirmationState}

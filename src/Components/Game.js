@@ -30,11 +30,15 @@ export default class Game extends React.Component {
   state = {
     isConfirmationState: false,
     fretNote: {},
-    isSelectionCorrect: null,
     lastNoteSelected: ""
   };
 
   componentDidMount = () => {
+    this.getRandomFretNote();
+  };
+
+  getNextFretNote = () => {
+    this.setState({ isConfirmationState: false });
     this.getRandomFretNote();
   };
 
@@ -44,24 +48,11 @@ export default class Game extends React.Component {
     this.setState({ fretNote });
   };
 
-  getNextFretNote = () => {
-    this.setState({ isConfirmationState: false, isSelectionCorrect: null });
-    this.getRandomFretNote();
-  };
-
-  revealAnswer = () => {
-    this.setState({ isConfirmationState: true });
-  };
-
-  handleNoteSelection = (e, note) => {
-    const lastNoteSelected = e.target.value;
-    const isSelectionCorrect = this.isSelectionCorrect(lastNoteSelected, note);
-    this.setState({ isSelectionCorrect, lastNoteSelected });
-    this.revealAnswer();
-  };
-
-  isSelectionCorrect = (selection, note) => {
-    return selection === note;
+  handleNoteSelection = e => {
+    this.setState({
+      lastNoteSelected: e.target.value,
+      isConfirmationState: true
+    });
   };
 
   render() {
