@@ -27,7 +27,7 @@ Guessing in the app. Emoji confirmation 🎉 / 😭
 
 ## V3
 
-##### Problems to solve
+##### Problems
 
 It's all too small and fiddly and cluttered!
 
@@ -47,6 +47,22 @@ It's all too small and fiddly and cluttered!
 ![Imgur](https://i.imgur.com/GPEw9ru.png)
 
 ![Imgur](https://i.imgur.com/7mVlbZT.png)
+
+## V4
+
+V3 felt useable! I played around on my phone for a bit and felt like I was learning 🎉
+
+##### Problems
+
+- jumping around of elements between selection and confirmation states states (e.g. when the notes disappear to reveal the answer and next button) is hectic for the user and harms ease of use
+- location of next button always feels a bit unexpected
+- "#"s are cluttering and make it harder to pick out the right notes
+
+##### Solutions
+
+- build confirmation state into the note buttons, using colour to solve the problem
+- disable the next button instead of hiding it in selection state
+- reduce size of "#"s
 
 ## Idea Backlog
 
