@@ -12,6 +12,11 @@ const StringFret = styled.span`
 
 const Button = styled.button`
   font-size: 42px;
+  width: 72px;
+`;
+
+const NextButton = styled.button`
+  font-size: 42px;
 `;
 
 const Answer = styled.span`
@@ -179,9 +184,12 @@ export default class Fretboard extends React.Component {
         </div>
         <div>
           {isAnswerRevealed && (
-            <Button onClick={this.getNextFretNote} style={{ margin: "16px 0" }}>
+            <NextButton
+              onClick={this.getNextFretNote}
+              style={{ margin: "16px 0" }}
+            >
               Next
-            </Button>
+            </NextButton>
           )}
         </div>
       </>

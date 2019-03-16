@@ -39,12 +39,12 @@ It's all too small and fiddly and cluttered!
 
 ##### Solutions
 
-- larger copy for string and fret value, aking them stand out from their labels
+- larger copy for string and fret value, so the more dynamic content stands out from the static labels
 - larger buttons
 - remove unnecessary button
 - remove unnecessary copy
 
-![Imgur](https://i.imgur.com/VQgbZuS.png)
+![Imgur](https://i.imgur.com/GPEw9ru.png)
 
 ![Imgur](https://i.imgur.com/7mVlbZT.png)
 
