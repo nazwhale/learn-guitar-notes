@@ -2,7 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { FRET_NOTES } from "./notes";
-import SharpSign from "./SharpSign";
 import Fretboard from "./Fretboard";
 
 const KeyValue = styled.span`
@@ -17,43 +16,16 @@ const NextButton = styled.button`
   font-size: 42px;
 `;
 
-const Answer = styled.span`
-  font-size: 42px;
-`;
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-const NoteDisplay = ({ note, isSharp }) => {
-  if (isSharp) {
-    return (
-      <>
-        <span>{note}</span>
-        <SharpSign />
-      </>
-    );
-  }
-  return <span>{note}</span>;
-};
-
-const ResultEmoji = ({ isCorrect }) => {
-  return isCorrect ? (
-    <span role="img" aria-label="tada">
-      🎉
-    </span>
-  ) : (
-    <span role="img" aria-label="sob">
-      😭
-    </span>
-  );
-};
-
 export default class Game extends React.Component {
   state = {
-    isAnswerRevealed: false,
+    isConfirmationState: false,
     fretNote: {},
-    isSelectionCorrect: null
+    isSelectionCorrect: null,
+    lastNoteSelected: ""
   };
 
   componentDidMount = () => {
@@ -67,20 +39,18 @@ export default class Game extends React.Component {
   };
 
   getNextFretNote = () => {
-    this.setState({ isAnswerRevealed: false, isSelectionCorrect: null });
+    this.setState({ isConfirmationState: false, isSelectionCorrect: null });
     this.getRandomFretNote();
   };
 
   revealAnswer = () => {
-    this.setState({ isAnswerRevealed: true });
+    this.setState({ isConfirmationState: true });
   };
 
   handleNoteSelection = (e, note) => {
-    const selection = e.target.value;
-    console.log("value", selection);
-    console.log("challengeNote", note);
-    const isSelectionCorrect = this.isSelectionCorrect(selection, note);
-    this.setState({ isSelectionCorrect });
+    const lastNoteSelected = e.target.value;
+    const isSelectionCorrect = this.isSelectionCorrect(lastNoteSelected, note);
+    this.setState({ isSelectionCorrect, lastNoteSelected });
     this.revealAnswer();
   };
 
@@ -89,7 +59,7 @@ export default class Game extends React.Component {
   };
 
   render() {
-    const { fretNote, isAnswerRevealed, isSelectionCorrect } = this.state;
+    const { fretNote, isConfirmationState, lastNoteSelected } = this.state;
     const challengeNoteName = fretNote["name"];
 
     return (
@@ -104,32 +74,21 @@ export default class Game extends React.Component {
           </KeyValue>
         </p>
         <div>
-          <Answer>
-            {isAnswerRevealed ? (
-              <NoteDisplay
-                note={fretNote["note"]}
-                isSharp={fretNote["sharp"]}
-              />
-            ) : (
-              <Fretboard
-                challengeNote={challengeNoteName}
-                handleNoteSelection={this.handleNoteSelection}
-              />
-            )}{" "}
-            {isSelectionCorrect != null && (
-              <ResultEmoji isCorrect={isSelectionCorrect} />
-            )}
-          </Answer>
+          <Fretboard
+            challengeNote={challengeNoteName}
+            isConfirmationState={isConfirmationState}
+            lastNoteSelected={lastNoteSelected}
+            handleNoteSelection={this.handleNoteSelection}
+          />
         </div>
         <div>
-          {isAnswerRevealed && (
-            <NextButton
-              onClick={this.getNextFretNote}
-              style={{ margin: "16px 0" }}
-            >
-              Next
-            </NextButton>
-          )}
+          <NextButton
+            onClick={this.getNextFretNote}
+            style={{ margin: "16px 0" }}
+            disabled={!isConfirmationState}
+          >
+            Next
+          </NextButton>
         </div>
       </>
     );
