@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { FRET_NOTES } from "./notes";
+import SharpSign from "./SharpSign";
 import Fretboard from "./Fretboard";
 
 const KeyValue = styled.span`
@@ -23,6 +24,18 @@ const Answer = styled.span`
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
+
+const NoteDisplay = ({ note, isSharp }) => {
+  if (isSharp) {
+    return (
+      <>
+        <span>{note}</span>
+        <SharpSign />
+      </>
+    );
+  }
+  return <span>{note}</span>;
+};
 
 const ResultEmoji = ({ isCorrect }) => {
   return isCorrect ? (
@@ -64,6 +77,8 @@ export default class Game extends React.Component {
 
   handleNoteSelection = (e, note) => {
     const selection = e.target.value;
+    console.log("value", selection);
+    console.log("challengeNote", note);
     const isSelectionCorrect = this.isSelectionCorrect(selection, note);
     this.setState({ isSelectionCorrect });
     this.revealAnswer();
@@ -75,7 +90,7 @@ export default class Game extends React.Component {
 
   render() {
     const { fretNote, isAnswerRevealed, isSelectionCorrect } = this.state;
-    const note = fretNote["note"];
+    const challengeNoteName = fretNote["name"];
 
     return (
       <>
@@ -91,10 +106,13 @@ export default class Game extends React.Component {
         <div>
           <Answer>
             {isAnswerRevealed ? (
-              fretNote["note"]
+              <NoteDisplay
+                note={fretNote["note"]}
+                isSharp={fretNote["sharp"]}
+              />
             ) : (
               <Fretboard
-                note={note}
+                challengeNote={challengeNoteName}
                 handleNoteSelection={this.handleNoteSelection}
               />
             )}{" "}
