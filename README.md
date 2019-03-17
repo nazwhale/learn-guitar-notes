@@ -89,12 +89,32 @@ I feel like that could be kinda fun. In the spirit of the project, I'll implemen
 
 ##### Solution
 
-- add a running total
+- add a running points total
+- reset total on incorrect guess
+- emoji feedback, getting smilier as the points go up
 
-## Idea Backlog
+![Imgur](https://i.imgur.com/CpAlFZU.png)
+
+![Imgur](https://i.imgur.com/sJEk9K5.png)
+
+## V6
+
+This is already much better. I've caught myself swearing when getting one wrong and losing all my points, which is surely a good thing.
+
+##### Problem
+
+It's _kind of_ fun. But the app doesn't have my full attention - there's no urgency to the gameplay. There's nothing stopping me from taking ages figuring out an answer, and I'm assured that I'll get it right eventually, which means there's no tension.
+
+##### Solution
+
+- add a timer with a limit per guess
+
+---
+
+## Random ideas
 
 - feedback button
-- running score
+- running score ✅
 - image of fretboard instead of string and fret in text
 - results page
 - welcome page

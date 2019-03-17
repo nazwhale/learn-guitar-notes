@@ -36,7 +36,7 @@ function chooseColor(
   const isNoteCorrect = challengeNote === value;
   const isNoteChosen = lastNoteSelected === value;
 
-  if (isNoteCorrect && isNoteChosen) return palette.green;
+  if (isNoteCorrect && isNoteChosen) return palette.lightGreen;
   if (isNoteCorrect) return palette.lightGreen;
   if (isNoteChosen) return palette.lightRed;
 
