@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { palette } from "../theme";
 import { FRET_NOTES } from "./notes";
 import Fretboard from "./Fretboard";
+import ScoreKeeper from "./ScoreKeeper";
 
 const KeyValue = styled.span`
   padding-right: 8px;
@@ -26,11 +27,20 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+function calculateScore(currentScore, challengeNote, selection) {
+  if (challengeNote === selection) {
+    return currentScore + 1;
+  } else {
+    return 0;
+  }
+}
+
 export default class Game extends React.Component {
   state = {
     isConfirmationState: false,
     fretNote: {},
-    lastNoteSelected: ""
+    lastNoteSelected: "",
+    score: 0
   };
 
   componentDidMount = () => {
@@ -48,19 +58,32 @@ export default class Game extends React.Component {
     this.setState({ fretNote });
   };
 
-  handleNoteSelection = e => {
+  handleNoteSelection = (e, challengeNote) => {
+    const score = calculateScore(
+      this.state.score,
+      challengeNote,
+      e.target.value
+    );
+
     this.setState({
       lastNoteSelected: e.target.value,
-      isConfirmationState: true
+      isConfirmationState: true,
+      score
     });
   };
 
   render() {
-    const { fretNote, isConfirmationState, lastNoteSelected } = this.state;
+    const {
+      fretNote,
+      isConfirmationState,
+      lastNoteSelected,
+      score
+    } = this.state;
     const challengeNoteName = fretNote["name"];
 
     return (
       <>
+        <ScoreKeeper score={score} />
         <p>
           <KeyValue>
             <StringFret>{fretNote["string"]}</StringFret>
