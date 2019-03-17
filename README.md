@@ -68,6 +68,29 @@ V3 felt useable! I played around on my phone for a bit and felt like I was learn
 
 ![Imgur](https://i.imgur.com/I7Zc9Il.png)
 
+## V5
+
+So now it does the job and the interface is much cleaner. But it's feeling pretty boring (especially since I removed the emoji's 😛).
+
+I could put them back in, but I think it's worth thinking about the problem of boringness in a bit more depth.
+
+So I did a bit of research on simple game mechanics and came up with something that felt good:
+
+- add a running total (to give a feeling of progression)
+- reset the total for an incorrect answer (add a feeling of pride for streaks of correct answers, top scores to beat)
+- include a timer which gets faster as the score gets higher (difficulty increases with mastery)
+- score starts decreasing if the timer fills up (same)
+
+I feel like that could be kinda fun. In the spirit of the project, I'll implement these features incrementally. I know nothing about game design, and might learn a bit and have to course correct along the way.
+
+##### Problem
+
+- it's boring!
+
+##### Solution
+
+- add a running total
+
 ## Idea Backlog
 
 - feedback button
